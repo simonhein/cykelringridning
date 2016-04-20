@@ -1,0 +1,159 @@
+<div class="scrollable">
+    <div class="scrollable-content section">
+
+        <h1>{{event.event_name}}</h1>
+
+        <form name="userFormTwo" novalidate>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="inline"><h3 ng-click="showPageEditor=!showPageEditor" class="panel-title">
+                        Standard Konfiguration</h3></span>
+
+                </div>
+                <div ng-hide="showPageEditor">
+                    <div class="panel-body">
+                        <label>Event navn</label>
+            <pre><input class="form-control" name="event_name" ng-model="event.event_name"
+                        required></pre>
+
+                        <label>Event dato</label>
+            <pre><input class="form-control" name="event_date" ng-model="event.event_date"
+                        required></pre>
+
+                        <label>Max antal galger</label>
+            <pre><input class="form-control" name="max_lanes" ng-model="event.max_lanes"
+                        required></pre>
+
+                        <label>Max deltager pr galger</label>
+            <pre><input class="form-control" name="max_lanes" ng-model="event.lane_capacity"
+                        required></pre>
+
+                        <label>Event status</label>
+                        <pre><select  class="form-control" ng-init="event.states[0].name" ng-model="event.state" ng-options="state.name for state in event.states"></select>
+</pre>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="inline"><h3 ng-click="showPageEditor=!showPageEditor" class="panel-title">
+                        Konfigurer info</h3></span>
+                </div>
+                <div ng-hide="showPageEditor">
+                    <div class="panel-body">
+                        <text-angular name="event.html_content" ng-model="event.html_content"></text-angular>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 ng-click="showShirtsEditor=!showShirtsEditor" class="panel-title">Konfigurer T-shirts</h3>
+                </div>
+                <div ng-hide="showShirtsEditor">
+                    <div class="panel-body">
+
+                        <div ng-repeat="shirt in event.shirts">
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <label>Farve</label>
+                                    <input type="text" class="form-control" placeholder="t-shirt farve" ng-model="shirt.color" required>
+                                    <label>Antal t-shirts</label>
+                                    <input type="number" class="form-control" placeholder="antal" ng-model="shirt.number" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="text-align: center;">
+                            <button class="btn btn-success" ng-click="addShirt()">Tilføj trøje</button>
+                            <button class="btn btn-danger" ng-disabled="removeShirtDisableBtn" ng-click="removeShirt()">Slet
+                            </button>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 ng-click="showEmailEditor=!showEmailEditor" class="panel-title">Hjemmeside email velkomst mail</h3>
+                </div>
+                <div ng-hide="showEmailEditor">
+                    <div class="panel-body">
+                        <text-angular name="event.email_content" ng-model="event.email_content"></text-angular>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 ng-click="showGroupEditor=!showGroupEditor" class="panel-title">Konfigurer galger</h3>
+                </div>
+                <div ng-hide="showGroupEditor">
+
+                    <div class="panel-body">
+                        <div ng-repeat="group in event.groups">
+                            <label>Gruppe navn</label>
+
+                            <div class="input-group">
+
+                                <input type="text" ng-model="group.group_name" class="form-control">
+                           <span class="input-group-btn">
+                                <button class="btn btn-success" ng-click="enableLanes=!enableLanes" type="button">
+                                    Konfigurer
+                                </button>
+                           </span>
+                            </div>
+
+                            <div ng-include="'views/configGroups.html'"></div>
+                            <hr>
+
+                        </div>
+
+
+                        <div ng-show="enhanced_mode">
+                            <div style="text-align: center;">
+                                <button class="btn btn-success" ng-click="addGroup()">Tilføj grupper</button>
+                                <button class="btn btn-danger" ng-disabled="removeGroupDisable" ng-click="removeGroup()">Slet
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+
+        <button class="btn btn-success btn-block" ng-click="save()">Gem</button>
+        <button class="btn btn-danger btn-block" ng-click="cancel()">Anuller</button>
+        <a href="#/participants">Konfiguerer deltagere</a>
+
+
+        <pre><code>
+            {{ event }}
+        </code></pre>
+
+
+    </div>
+
+
+</div>
+
+

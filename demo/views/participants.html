@@ -1,0 +1,45 @@
+<div class="scrollable-content">
+    <div class="panel-group">
+        <div class="section">
+
+            <div class="row">
+                    <div class="form-group col-xs-6">
+                        <label for="firstname" class="sr-only"></label>
+
+                        <input id="firstname" ng-model="search.first_name" class="form-control input-group-lg reg_name"
+                               type="text" name="firstname"
+                               title="Enter first name"
+                               placeholder="First name"/>
+                    </div>
+
+
+                    <div class="form-group col-xs-6">
+                        <label for="lastname" class="sr-only"></label>
+                        <input id="lastname" ng-model="search.last_name" class="form-control input-group-lg reg_name"
+                               type="text" name="lastname"
+                               title="Enter last name"
+                               placeholder="Last name"/>
+                    </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="panel panel-default" ng-repeat="group in event.groups ">
+
+            <div class="section">
+                <h1>Gruppe:{{group.group_name}}</h1>
+
+                <div class="panel-body animate-repeat" ng-class-odd="'odd'" ng-class-even="'even'" ng-hide="checked"
+                     ng-repeat="participant in group.participants | orderBy: ['first_name', 'last_name'] | filter:search:strict">
+
+                    <a class="btn btn-danger btn-block" href="#/participant/{{participant.id}}">{{participant.first_name}}
+                        {{participant.last_name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

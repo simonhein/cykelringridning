@@ -1,0 +1,15 @@
+.odd {
+  background-color: #e0e0e0;
+}
+.even {
+  background-color: #ededed;
+    
+}
+
+.odd_swipe_background {
+  background-image: url(/demo/img/1.jpg);
+}
+.even_swipe_background {
+  background-image: url(/demo/img/2.jpg);
+    
+}

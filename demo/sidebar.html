@@ -1,0 +1,31 @@
+<div class="scrollable white">
+    <h1 class="scrollable-header app-name">
+        <small>{{event.event_name}}</small>
+    </h1>
+    {{time}}
+    <div class="scrollable-content">
+        <div class="list-group" ui-turn-off='uiSidebarLeft'>
+            <a class="list-group-item list-group-item-danger" href="#/">Hjem <i
+                    class="fa fa-chevron-right pull-right"></i></a>
+            <a class="list-group-item list-group-item-danger" href="#/groups">Resultater <i
+                    class="fa fa-chevron-right pull-right"></i></a>
+            <a class="list-group-item list-group-item-danger" href="#/photos">Billeder <i
+                    class="fa fa-chevron-right pull-right"></i></a>
+            <a class="list-group-item list-group-item-danger" href="#/signup">Tilmeld event<i
+                    class="fa fa-chevron-right pull-right"></i></a>
+
+
+            <div ng-show="isLoggedIn">
+                <a class="list-group-item list-group-item-danger" href="#/checkin">Check in <i
+                        class="fa fa-chevron-right pull-right"></i></a>
+                <a class="list-group-item list-group-item-danger" href="#/check_in">Resultat indberetter<i
+                        class="fa fa-chevron-right pull-right"></i></a>
+                <a class="list-group-item list-group-item-danger" href="#/admin">Admin<i
+                        class="fa fa-chevron-right pull-right"></i></a>
+                <a class="list-group-item list-group-item-danger" href="#/participants">Ændre deltager data<i
+                        class="fa fa-chevron-right pull-right"></i></a>
+            </div>
+            <!--<a class="list-group-item" href="#/record_result">Registrer resultater<i class="fa fa-chevron-right pull-right"></i></a> -->
+        </div>
+    </div>
+</div>

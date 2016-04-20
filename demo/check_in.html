@@ -1,0 +1,49 @@
+<div ng-controller="CheckInCtrl">
+
+
+    <!--
+
+      <div ">
+            <div class="section">
+
+    -->
+
+
+    <div ng-show="showGroupsView" class="scrollable-content">
+        <div class="section">
+            <h1>Alders grupper</h1>
+
+            <div ng-repeat="group in event.groups">
+                <div ><a class="btn btn-danger btn-block" href="#/laneSelectView/{{group.id}}">{{group.group_name}}</a></div><br>
+            </div>
+            <br>
+        </div>
+    </div>
+
+
+    <div ng-show="showCheckInView" class="scrollable-content">
+        <div class="section">
+            <h1>Galger</h1>
+
+            <div ng-repeat="lane in lanes | orderBy: lane">
+
+                <button class="btn btn-primary btn-block" ng-click="loadScore(lane)">Galge {{lane}}</button>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="showScoreView">
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class="section">
+            <div class="carousel">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+

@@ -1,0 +1,39 @@
+<div class="modal modal-overlay" ui-if='modal2' ui-state='modal2'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <button class="close"
+                            ui-turn-off="modal2">&times;</button>
+                    <h1 class="modal-title">Opret bruger</h1>
+                </div>
+                <div ng-hide="isValidated">
+                    <form role="form" ng-submit='fetch()'>
+                        <fieldset>
+                            <div class="form-group has-success has-feedback">
+                                <h4>Verificer email</h4>
+                                <div class="well-lg">Du har nu modtaget en email, med en bekræftelseskode.</div>
+                                <label>Indtast bekræfelses kode</label>
+                                <input ng-model="ticket"
+                                       class="form-control"
+                                       placeholder="kode">
+                            </div>
+                        </fieldset>
+                        <button class="btn btn-primary btn-block" ng-click="isValidated=!isValidated">Bekræft</button>
+                    </form>
+                </div>
+
+                <div ng-show="isValidated">
+                    <h4>Deltager oprettet</h4>
+                    <div class="well-lg">Du er nu tilmeldt eventet. Du vil om få minutter modtage en e-mail med
+                        din billet. Du skal skrive den ud og medbringe den til check in. Ved events begyndelse
+                    </div>
+                    <br>
+                    <button ui-turn-off="modal2" class="btn btn-primary btn-block">OK</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

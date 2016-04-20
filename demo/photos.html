@@ -1,0 +1,28 @@
+<div ui-content-for="title">
+    <span>Billede galleri</span>
+</div>
+
+<div class="scrollable" ui-state="searchBar" ng-app="myApp" ng-controller="Example">
+
+
+    <div class="scrollable-content" ui-scroll-bottom='getMore()'>
+        <div class="section">
+            <div class="list-group">
+
+
+                <div ng-repeat="p in pics | orderBy:orderBy" class="col-md-2">
+                    <center><a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.low_resolution.url}}"
+                                                                      class="img-responsive thumbnail"
+                                                                      title="{{p.caption.text}}"></a>
+                        <span class="glyphicon glyphicon-heart"> {{p.likes.count}}</span>
+                    </center>
+                </div>
+
+
+                <a class="btn btn-block btn-lg btn-danger scrollable-footer" ng-click="getMore()">
+                    {{pics.length}} indlæs flere
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="modal" ui-if='modal1' ui-state='modal1'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="modal1">&times;</button>
+        <h4 class="modal-title">Bekræft kode</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" ng-submit='fetch()'>
+          <fieldset>
+            <div class="form-group has-success has-feedback">
+              <h1>Verificer email</h1>
+
+              <div class="well-lg">Du har nu modtaget en email, med en bekræftelseskode.</div>
+              <label>Indtast bekræfelses kode</label>
+              <input ng-model="ticket"
+                     class="form-control"
+                     placeholder="kode">
+            </div>
+          </fieldset>
+          <button class="btn btn-primary btn-block">Bekræft</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button ui-turn-off="modal1" class="btn btn-default">Close</button>
+        <button ui-turn-off="modal1" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

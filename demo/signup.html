@@ -1,0 +1,84 @@
+<div ui-content-for="title">
+    <span>Tilmeld til {{event.event_name}}</span>
+</div>
+
+
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="section section-break">
+            <div ng-show="enableVerification">
+
+                <!--<div ng-include="'verify_form.html'"></div>-->
+                <div ng-hide="isValidated">
+                    <form role="form" ng-submit='fetch()'>
+                        <fieldset>
+                            <div class="form-group has-success has-feedback">
+                                <h4>Verificer email</h4>
+                                <div class="well-lg">Du har nu modtaget en email, med en bekræftelseskode.</div>
+                                <label>Indtast bekræfelses kode</label>
+                                <input ng-model="ticket"
+                                       class="form-control"
+                                       placeholder="kode">
+                            </div>
+                        </fieldset>
+                        <button class="btn btn-danger btn-block" ng-click="isValidated=!isValidated">Bekræft</button>
+                    </form>
+                </div>
+
+                <div ng-show="isValidated">
+                    <h4>Deltager oprettet</h4>
+                    <div class="well-lg">Du er nu tilmeldt eventet. Du vil om få minutter modtage en e-mail med
+                        din billet. Du skal skrive den ud og medbringe den til check in. Ved events begyndelse
+                    </div>
+                    <br>
+                    <button ui-turn-off="modal2" class="btn btn-danger btn-block">OK</button>
+                </div>
+
+            </div>
+
+            <div ng-hide="enableVerification">
+                <!--<div ng-include="'signup_form.html'"></div>-->
+
+                <form role="form" ng-submit='submit()'>
+                    <fieldset>
+                        <div class="form-group has-success has-feedback">
+                            <label>Forældre email</label>
+                            <input required type="email" ng-model="email"
+                                   class="form-control"
+                                   placeholder="forældre@email.dk">
+                            <label>Barns fornavn</label>
+                            <input required ng-model="first_name"
+                                   class="form-control"
+                                   placeholder="Indtast fornavn">
+                            <label>Barns efternavn</label>
+                            <input required ng-model="last_name"
+                                   class="form-control"
+                                   placeholder="Indtast efternavn">
+                            <label>Barns fødselsdag</label>
+                            <input required type="date" ng-model="birthday"
+                                   class="form-control"
+                                   placeholder="dd/mm/yyyy">
+
+                            <div class="form-group">
+                                <label for="sel1">Vælg gruppe</label>
+                                <select class="form-control" id="sel1"
+                                        ng-init="group.group_name = event.groups[0]"
+                                        ng-model="myGroup.id"
+                                        ng-options="group.group_name for group in event.groups">
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-danger btn-block">
+                            Opret
+                        </button>
+
+                    </fieldset>
+                    <hr>
+                </form>
+
+            </div>
+            <h1>{{error_msg}}</h1>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div ui-content-for="title">
+  <span>Check in</span>
+</div>
+
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+
+
+
+  <form role="form" ng-submit='fetch()'>
+    <fieldset>
+        <div class="form-group has-success has-feedback">
+          <label>Billet kode</label>
+          <input
+                 ng-model="ticket"
+                 class="form-control"
+                 placeholder="Indtast billet kode">
+        </div>
+    </fieldset>
+    <hr>
+
+    <div>Deltager registret:</div>
+    <pre>Simon Hein</pre>
+    Farve:
+    <pre>Rød</pre>
+    Trøje nr:
+    <pre>10</pre>
+    {{handout}}
+    {{ticketCheck}}
+
+    <pre>http status code: {{status}}</pre>
+    <pre>http response data: {{data}}</pre>
+
+
+
+    <button class="btn btn-danger btn-block">
+      Check in
+    </button>
+
+
+  </form>
+ </div>
+</div>

@@ -1,0 +1,31 @@
+<form role="form" ng-submit='submit()'>
+    <fieldset>
+        <div class="form-group has-success has-feedback">
+            <label>Forældre email</label>
+            <input required type="email" ng-model="email"
+                   class="form-control"
+                   placeholder="forældre@email.dk">
+            <label>Barns fornavn</label>
+            <input required ng-model="first_name"
+                   class="form-control"
+                   placeholder="Indtast fornavn">
+            <label>Barns efternavn</label>
+            <input required ng-model="last_name"
+                   class="form-control"
+                   placeholder="Indtast efternavn">A
+            <label>Barns fødselsdag</label>
+            <input required type="date" ng-model="birthday"
+                   class="form-control"
+                   placeholder="dd/mm/yyyy">
+
+
+        </div>
+
+
+        <button class="btn btn-primary btn-block">
+            Opret
+        </button>
+
+    </fieldset>
+    <hr>
+</form>

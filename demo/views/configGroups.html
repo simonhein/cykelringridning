@@ -1,0 +1,122 @@
+<div ng-show="enableLanes">
+    <hr>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Indstillinger for gruppe {{$index+1}}</h3>
+        </div>
+        <div class="panel-body">
+            <label>Kør gruppe sepearat</label>
+                <pre><input id="checkSlave" type="checkbox" ng-checked="group.group_run_alone"
+                                            aria-label="Slave input">
+                </pre>
+
+            <label>Finale Skriver</label>
+            <pre><input class="form-control" ng-model="group.extra_round_writer"></pre>
+
+            <label>Runder</label>
+            <pre><input class="form-control" ng-model="group.rounds"></pre>
+
+
+            <div ng-repeat="lane in group.lanes track by $index">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Galge {{$index+1}}</div>
+                    <div class="panel-body">
+
+                        <div ng-show="enhanced_mode">
+                            <label>Galge navn</label>
+                            <input class="form-control" ng-model="lane.lane_name">
+                        </div>
+                        <label>Skriver email:</label>
+                        <input class="form-control" ng-model="lane.lane_writer">
+                    </div>
+                </div>
+
+                <hr>
+
+
+            </div>
+
+            <div ng-show="enhanced_mode">
+                <button class="btn btn-success" ng-disabled="group.addLaneDisable"
+                        ng-click="addLane(group);">
+                    Tilføj
+                    galge
+                </button>
+                <button class="btn btn-danger" ng-disabled="group.removeLaneDisable"
+                        ng-click="removeLane(group);">
+                    Slet sidste galge
+                </button>
+
+                </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<style>
+    input[type=checkbox] {
+        outline: none;
+        width: 58px;
+        height: 23px;
+        font-size: 11px;
+        line-height: 2;
+        display: block;
+        font-weight: bold;
+        border-radius: 3px;
+        border: 1px solid #B9B9B9;
+        -webkit-appearance: none;
+
+        background-image: -webkit-gradient(
+                linear, left top, left bottom,
+                color-stop(0, #E8E8E8),
+                color-stop(0.5, #E8E8E8),
+                color-stop(0.5, #FDFDFD),
+                color-stop(1, #FDFDFD)
+        );
+        box-shadow: 0px 1px 2px #AFAFAF inset;
+        color: #7F7F7F;
+    }
+
+    input[type=checkbox]:checked {
+        background-image: -webkit-gradient(
+                linear, left top, left bottom,
+                color-stop(0, #367EF8),
+                color-stop(0.5, #367EF8),
+                color-stop(0.5, #66A3F8),
+                color-stop(1, #66A3F8)
+        );
+        box-shadow: 0px 1px 2px #1449A3 inset;
+        color: #fff;
+        text-shadow: 0px -1px 1px #000;
+        border: 1px solid #99B9E8;
+    }
+
+    input[type=checkbox]:before {
+        content: 'NEJ';
+        border-radius: 3px;
+        border-top: 1px solid #F7F7F7;
+        border-right: 1px solid #999999;
+        border-bottom: 1px
+        solid: #BABABA;
+        border-left: 1px solid #BDBDBD;
+        background-image: -webkit-gradient(
+                linear, left top, left bottom,
+                color-stop(0, #D8D8D8),
+                color-stop(1, #FBFBFB)
+        );
+        height: 20px;
+        width: 22px;
+        display: inline-block;
+        text-indent: 27px;
+    }
+
+    input[type=checkbox]:checked:before {
+        content: 'JA';
+        text-indent: -25px;
+        margin-left: 33px;
+    }
+</style>

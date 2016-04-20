@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="../css/style.css"/>
+
+<div ui-content-for="title">
+    <span>Resultater </span>
+</div>
+<div class="scrollable-content">
+    <div class="section">
+        <h3>
+            <center>{{event.event_name}}</center>
+        </h3>
+
+        <div class="panel-group">
+            <div class="panel panel-default" ng-repeat="group in event.groups ">
+                <a  class="btn btn-danger btn-block" href="#/results/{{group.id}}"> {{group.group_name}}</a>
+            </div>
+
+        </div>
+    </div>
+</div>

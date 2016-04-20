@@ -1,0 +1,22 @@
+<div ui-content-for="title">
+    <span>Resultater </span>
+</div>
+<div class="scrollable-content">
+    <div class="section">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Gruppe {{group.group_name}}</h3>
+            </div>
+
+                <div class="panel-body" ng-class-odd="'odd'" ng-class-even="'even'"
+                     ng-repeat="participant in group.participants | orderBy: ['-pts', 'last_name'] | filter:search:strict">
+                    #{{$index+1}} {{participant.first_name}} {{participant.last_name}} <b>{{participant.pts}} ringe</b>
+                </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>
